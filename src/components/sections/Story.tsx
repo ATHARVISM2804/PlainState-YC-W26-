@@ -13,6 +13,7 @@ import { Cite } from "../Cite";
 import { Reveal } from "../Reveal";
 import { Stamp } from "../Stamp";
 import { Torn } from "./Torn";
+import { Inspect } from "./Inspect";
 import "./Story.css";
 
 /* ------------------------------------------------------------ the change */
@@ -134,6 +135,10 @@ export function Engine() {
             </li>
           ))}
         </ol>
+      </Reveal>
+
+      <Reveal>
+        <Inspect />
       </Reveal>
 
       <div className="engine__grid">

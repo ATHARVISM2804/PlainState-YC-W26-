@@ -16,3 +16,83 @@
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   }
 }
+
+/* The one lit object on the page. Two soft layers at low alpha on the sheet
+   and the receipt only; everything else stays flat paper. */
+.demo .sheet,
+.demo .receipt,
+.demo .record,
+.demo .flags-card {
+  box-shadow:
+    0 1px 2px rgb(21 56 44 / 5%),
+    0 14px 36px -18px rgb(21 56 44 / 28%);
+}
+
+/* The receipt column: the receipt, then the checks the engine ran. */
+.demo__aside {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  min-width: 0;
+}
+
+.flags-card {
+  background: var(--surface);
+  border: 1px solid var(--line-hi);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.2rem 1.1rem;
+}
+
+.flags-card__title {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.7rem;
+}
+
+.flags-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.flags-card li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  color: var(--text-mid);
+}
+
+.flags-card code {
+  color: var(--text);
+}
+
+.flags-card li[data-state="warn"] code,
+.flags-card li[data-state="warn"] span {
+  color: var(--warn);
+}
+
+.flags-card li::before {
+  content: "";
+  display: none;
+}
+
+.flags-card__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--signal);
+  transform: translateY(-0.1em);
+}
+
+.flags-card li[data-state="warn"] .flags-card__dot {
+  background: var(--warn);
+}

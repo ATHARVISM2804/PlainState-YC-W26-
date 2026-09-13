@@ -18,6 +18,15 @@
   align-items: center;
   gap: 1rem;
   min-height: 4rem;
+  transition: min-height 240ms var(--ease);
+}
+
+.nav--lifted .nav__inner {
+  min-height: 3.4rem;
+}
+
+.nav--lifted .nav__mark img {
+  height: 1.5rem;
 }
 
 .nav__mark {
@@ -31,6 +40,7 @@
   display: block;
   height: 1.75rem;
   width: auto;
+  transition: height 240ms var(--ease);
 }
 
 .nav__links,

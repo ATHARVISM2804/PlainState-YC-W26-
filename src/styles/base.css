@@ -208,7 +208,7 @@ h2 {
   font-size: var(--t-xl);
   line-height: 1.08;
   letter-spacing: var(--track-head);
-  max-width: 20ch;
+  max-width: 18ch;
 }
 
 h3 {

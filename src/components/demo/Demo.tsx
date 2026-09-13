@@ -7,6 +7,7 @@ import { Sheet } from "./Sheet";
 import { Tether } from "./Tether";
 import { Record } from "./Record";
 import { track } from "../../lib/track";
+import { DEMO_FLAGS } from "../../data/content";
 import "./Demo.css";
 
 /** How long the rest of the sheet stays dimmed after a figure is picked. */
@@ -105,7 +106,22 @@ export function Demo({
             />
           )}
         </div>
-        <Receipt figure={figure} ref={receiptRef} />
+        <div className="demo__aside">
+          <Receipt figure={figure} ref={receiptRef} />
+          <aside className="flags-card" aria-label="Checks run on this statement">
+            <span className="flags-card__title">Checks on this statement</span>
+            <ul>
+              {DEMO_FLAGS.map((f) => (
+                <li key={f.code} data-state={f.state}>
+                  <span className="flags-card__dot" aria-hidden="true" />
+                  <span>
+                    <code>{f.code}</code> · {f.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </div>
       </div>
     </div>
   );

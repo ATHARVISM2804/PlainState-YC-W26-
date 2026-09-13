@@ -109,6 +109,19 @@
   .hero .lede {
     font-size: var(--t-base);
   }
+
+  /* The whole statement fits the first screen: tighter rows, no wasted foot. */
+  .hero .line {
+    padding-block: 0.36rem;
+  }
+
+  .hero .sheet__head {
+    padding-block: 0.7rem;
+  }
+
+  .hero .sheet__foot {
+    padding-block: 0.6rem 0.7rem;
+  }
 }
 
 .hero__hint {

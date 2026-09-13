@@ -61,6 +61,56 @@ export const WHAT = {
   ],
 };
 
+/* ------------------------------------------------------------ the workflow */
+
+export const WORKFLOW = {
+  eyebrow: "How a month moves",
+  heading: "From your software to your owner's inbox, with a person in the middle.",
+  body:
+    "Nothing changes about how you run the month. Your PMS still keeps the books and still produces its reports. Plainstate sits between those reports and the statement an owner receives, and it never sends anything on its own.",
+  steps: [
+    {
+      who: "Your PMS",
+      title: "The month closes",
+      body: "Buildium or AppFolio keeps the ledger, as it always has.",
+      note: "Nothing to migrate",
+    },
+    {
+      who: "Scheduled export",
+      title: "Reports drop in",
+      body: "The Owner Statement and General Ledger arrive as CSV, XLSX or PDF at an address we give you.",
+      note: "Any plan tier",
+    },
+    {
+      who: "Plainstate",
+      title: "Reconcile and cite",
+      body: "Every balance rolls forward to the cent. Every figure records the file, cell and checksum it came from. Anything uncertain is flagged.",
+      note: "Refuses rather than guesses",
+      core: true,
+    },
+    {
+      who: "Your reviewer",
+      title: "A person approves",
+      body: "Opens the draft, clicks any figure to see its source, edits if needed, and sends.",
+      note: "Never auto-sends",
+    },
+    {
+      who: "Your owner",
+      title: "A statement that explains itself",
+      body: "The same numbers as before, now with the reasons and the receipts behind them.",
+      note: "Fewer emails back",
+    },
+  ],
+  rules: ["Read-only", "No bank connection", "Nothing sent without approval"],
+};
+
+/** The checks the engine ran on the demo statement, shown beside the receipt. */
+export const DEMO_FLAGS = [
+  { code: "rollforward", state: "ok", text: "reconciled to the cent" },
+  { code: "totals", state: "ok", text: "three ledger lines sum to each total" },
+  { code: "period_continuity", state: "warn", text: "unverified · no prior period" },
+] as const;
+
 /* -------------------------------------------------------------- the films */
 
 export interface Film {
@@ -117,6 +167,8 @@ export const FOOTER = {
   ],
   reads: "Reads Buildium and AppFolio exports · CSV, XLSX and PDF · Never moves money",
   legal: "© 2026 Plainstate. Every figure on this page comes from a synthetic sample statement.",
+  colophon:
+    "Set in Newsreader, Instrument Sans and IBM Plex Mono. Built as a static site with no tracking of people. The paper is one tiled noise filter; the stamps and receipts are CSS.",
 };
 
 export interface Source {

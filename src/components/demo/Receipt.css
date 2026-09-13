@@ -1,6 +1,5 @@
 .receipt {
-  position: sticky;
-  top: 1.25rem;
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--line-hi);
   border-radius: var(--radius-lg);
@@ -88,6 +87,21 @@
   .receipt__fields dt:first-of-type {
     margin-top: 0;
   }
+}
+
+/* The checksum was re-verified on this read: a quiet mint word that fades. */
+.receipt__verified {
+  display: inline-block;
+  margin-left: 0.6rem;
+  color: var(--signal-deep);
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+}
+
+.receipt__verified.is-on {
+  opacity: 1;
+  transform: none;
 }
 
 /* ---- icons, tooltip and the counting value ---- */

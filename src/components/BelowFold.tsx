@@ -3,7 +3,7 @@ import { Rollforward } from "./sections/Rollforward";
 import { Sources } from "./sections/Sources";
 import { TryIt } from "./sections/TryIt";
 import { Film } from "./sections/Film";
-import { Data, Engine, Glossary, Method, Prove, RunsOut, Status } from "./sections/Story";
+import { Data, Engine, Method, RunsOut, Status } from "./sections/Story";
 import { TraceScroll } from "./sections/TraceScroll";
 import { FILMS } from "../data/content";
 import {
@@ -27,7 +27,6 @@ export default function BelowFold() {
   return (
     <>
       <RunsOut />
-      <Prove />
       <Rollforward />
       <Engine />
       <TraceScroll />
@@ -44,7 +43,6 @@ export default function BelowFold() {
       <Pricing />
       <Faq />
       <Close />
-      <Glossary />
       <Footer />
     </>
   );

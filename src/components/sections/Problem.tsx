@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import NumberFlow from "@number-flow/react";
 import { useInView, useReducedMotion } from "motion/react";
-import { PAIN } from "../../data/content";
+import { PAIN, WHY } from "../../data/content";
 import { Reveal } from "../Reveal";
 import { Cite } from "../Cite";
 import { Figure } from "../Figure";
@@ -71,7 +71,21 @@ export function Problem() {
           </div>
         </Reveal>
       </div>
-      <Cite sources={PAIN.sources} />
+
+      <Reveal>
+        <div className="why">
+          <span className="why__title">{WHY.eyebrow}</span>
+          <ol className="why__shifts">
+            {WHY.shifts.map((s) => (
+              <li key={s.title}>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Reveal>
+      <Cite sources={[...PAIN.sources, ...WHY.sources]} />
     </section>
   );
 }

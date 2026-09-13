@@ -1,9 +1,11 @@
-import { Ban, FileLock2, Layers, UserCheck } from "lucide-react";
+import { Ban, Check, FileLock2, Layers, UserCheck } from "lucide-react";
 import {
   BOUNDARIES,
   CLOSE,
   FOOTER,
+  GLOSSARY,
   PRICING_NOTE,
+  PROVE,
   SITE,
   PRINCIPLE,
   REFUSALS,
@@ -36,6 +38,14 @@ export function Principle() {
             {PRINCIPLE.paragraphs.map((t) => (
               <p className="prose" key={t.slice(0, 20)}>{t}</p>
             ))}
+            <ul className="band__standard">
+              {PROVE.lines.map((l) => (
+                <li key={l}>
+                  <Check size={14} strokeWidth={2.6} aria-hidden="true" />
+                  {l}
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </div>
@@ -205,6 +215,18 @@ export function Footer() {
           </nav>
         ))}
       </div>
+      <details className="footer__glossary" id="glossary">
+        <summary>Glossary · the words on this page</summary>
+        <dl className="glossary">
+          {GLOSSARY.map((g) => (
+            <div key={g.term} className="glossary__item">
+              <dt>{g.term}</dt>
+              <dd>{g.meaning}</dd>
+            </div>
+          ))}
+        </dl>
+      </details>
+      <p className="footer__colophon">{FOOTER.colophon}</p>
       <p className="footer__legal">{FOOTER.legal}</p>
     </footer>
   );

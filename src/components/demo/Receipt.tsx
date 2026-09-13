@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { AnimatePresence, m, useReducedMotion } from "motion/react";
 import NumberFlow from "@number-flow/react";
 import { FileText, Hash, ShieldCheck } from "lucide-react";
@@ -23,6 +23,13 @@ export const Receipt = forwardRef<HTMLElement, { figure: Figure }>(
   function Receipt({ figure }, ref) {
     const p = figure.provenance;
     const reduced = useReducedMotion();
+    // Every read re-verifies the stored file's checksum; show that it happened.
+    const [verified, setVerified] = useState(false);
+    useEffect(() => {
+      setVerified(true);
+      const t = window.setTimeout(() => setVerified(false), 900);
+      return () => window.clearTimeout(t);
+    }, [figure.key]);
     const swap = reduced
       ? { ...SWAP, initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } }
       : SWAP;
@@ -71,7 +78,12 @@ export const Receipt = forwardRef<HTMLElement, { figure: Figure }>(
               <Hash size={12} strokeWidth={2} aria-hidden="true" />
               checksum
             </dt>
-            <dd>{p.checksum}</dd>
+            <dd>
+              {p.checksum}
+              <span className={"receipt__verified" + (verified ? " is-on" : "")} aria-live="polite">
+                {verified ? "re-verified" : ""}
+              </span>
+            </dd>
 
             <dt>cell</dt>
             <dd className="is-brand">{p.cell}</dd>

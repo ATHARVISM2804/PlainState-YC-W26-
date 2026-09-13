@@ -129,25 +129,33 @@ because a visitor decides in about five seconds:
 2. **Demo** — beside the headline on wide screens, under it elsewhere; click a
    figure and everything not on its path recedes while the source appears
 3. **What Plainstate is** — the product in one paragraph and three columns
-4. **Film** — a framed video slot (`FILMS.overview` in `content.ts`); a second
+4. **How a month moves** — the whole loop in five stations: your PMS, the
+   export, Plainstate, your reviewer, your owner (`Workflow.tsx`)
+5. **Film** — a framed video slot (`FILMS.overview` in `content.ts`); a second
    slot (`FILMS.review`) follows the four steps. Empty `src` shows the frame.
-5. **Why now** — three shifts, with sources
-6. **The problem in the manager's words** — what owners write in, then the
-   founder's estimates, labelled as estimates
+6. **The problem in the manager's words** — what owners write in, the
+   founder's estimates labelled as estimates, then "Why now" as three shifts
 7. **What you do today, and where it runs out** — the PMS statement, a
-   spreadsheet, an outsourced bookkeeper, each honestly
-8. **A statement should prove itself** — the standard, before the product
-9. **How statements work** — the rollforward skeleton
-10. **Under the hood** — the seven-step engine, confidence tiers, refusals,
-    exit codes. Everything in it is built.
-11. **The receipt travels with the figure** — the forest band
+   spreadsheet, an outsourced bookkeeper, each honestly, with the torn
+   before/after
+8. **How statements work** — the rollforward skeleton
+9. **Under the hood** — the seven-step engine, the inspector's real output
+   (`Inspect.tsx`), confidence tiers, refusals, exit codes
+10. **One figure, end to end** — the scroll-drawn trace
+11. **The receipt travels with the figure** — the forest band, carrying the
+    four-line standard
 12. **Four steps, once a month** — the sticky walkthrough
 13. **What it reads**, **Try it**, **The checks**
 14. **What we believe** — six rules
 15. **What works today. What is next.** — dated, with the synthetic-data
     caveat stamped on it
 16. **Your data** — how files are handled, certification status stated plainly
-17. **Boundaries**, **Pricing**, **FAQ**, **Close**, **Glossary**, **Footer**
+17. **Boundaries**, **Pricing**, **FAQ**, **Close**, **Footer** — the footer
+    holds the glossary as a disclosure and a short colophon
+
+The hero is the one lit object on the page: the statement, the receipt and a
+"Checks on this statement" card share a single two-layer shadow; nothing else
+casts one. The nav compresses on scroll.
 
 Every section that makes a factual claim ends in a small `Sources` list
 (`Cite.tsx`); anything not cited is labelled a founder estimate.

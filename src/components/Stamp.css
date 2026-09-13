@@ -15,10 +15,39 @@
   text-transform: uppercase;
   line-height: 1.25;
   white-space: nowrap;
-  transform: rotate(-5deg);
+  rotate: -5deg;
   transform-origin: center;
   mix-blend-mode: multiply;
   opacity: 0.92;
+}
+
+/* The press: a slight settle from 1.06 as the stamp scrolls into view. On the
+   compositor, finished state by default. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .stamp {
+      animation: stamp-press linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 160px;
+    }
+  }
+}
+
+@keyframes stamp-press {
+  from {
+    opacity: 0;
+    scale: 1.06;
+  }
+  to {
+    opacity: 0.92;
+    scale: 1;
+  }
+}
+
+@media print {
+  .stamp {
+    animation: none;
+  }
 }
 
 .stamp--signal {

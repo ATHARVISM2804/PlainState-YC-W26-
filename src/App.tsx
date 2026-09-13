@@ -6,7 +6,7 @@ import { Ticker } from "./components/hero/Ticker";
 import { Problem } from "./components/sections/Problem";
 import { What } from "./components/sections/What";
 import { Film } from "./components/sections/Film";
-import { Why } from "./components/sections/Story";
+import { Workflow } from "./components/sections/Workflow";
 import { ScrollLedger } from "./components/ScrollLedger";
 import { FILMS, SITE } from "./data/content";
 import { attachLinkTracking } from "./lib/track";
@@ -38,8 +38,8 @@ export default function App() {
         <Hero />
         <Ticker />
         <What />
+        <Workflow />
         <Film film={FILMS.overview} />
-        <Why />
         <Problem />
         {/* No spinner: the chunk lands long before anyone scrolls this far, and
             a flash of loading state would be worse than nothing. */}
