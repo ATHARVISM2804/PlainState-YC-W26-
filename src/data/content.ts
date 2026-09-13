@@ -326,7 +326,7 @@ export const GLOSSARY = [
 ];
 
 /* Facts about the engine that are true today, for the strip under the hero.
-   This is where a logo strip would go. Every line traces to PLAINSTATE.md. */
+   This is where a logo strip would go. Every line is a fact about the built engine. */
 export const FACTS = [
   "500 automated tests",
   "About 12,000 fuzz cases, six invariants",
