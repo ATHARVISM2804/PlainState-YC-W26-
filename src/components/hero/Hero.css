@@ -1,0 +1,147 @@
+.hero {
+  position: relative;
+  padding-block: clamp(2.25rem, 6vw, 4.5rem) clamp(2.5rem, 7vw, 5rem);
+  scroll-margin-top: 5rem;
+}
+
+/* One directional wash behind the hero only: light falling across a surface,
+   not a gradient for its own sake. */
+/* Bleeds above the hero but never past its sides. Insetting it horizontally
+   (-40%) pushed the document wider than the viewport and gave the whole page a
+   sideways scroll at every width — invisible in the markup, obvious the moment
+   it is measured in a browser. The radial stops are positioned in percentages,
+   so they still read correctly inside the box. */
+.hero__aura {
+  position: absolute;
+  top: -25%;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  height: 140%;
+  background: var(--aura);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__copy,
+.hero__demo {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.15rem;
+  max-width: 54rem;
+}
+
+/* Each word rises out of its own mask; the mask is the line box. */
+.hero__word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.hero__wordInner {
+  display: inline-block;
+  will-change: transform;
+}
+
+.hero__kicker {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--brand);
+  line-height: 1.5;
+}
+
+.hero__signals {
+  list-style: none;
+  margin: 0.3rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: var(--t-sm);
+  color: var(--text-dim);
+}
+
+.hero__signals li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+
+.hero__demo {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* Wide screens: the statement sits beside the copy. The artefact is the hero. */
+@media (min-width: 80rem) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    gap: clamp(2rem, 3.5vw, 3.5rem);
+    align-items: start;
+  }
+
+  .hero__aura {
+    grid-column: 1 / -1;
+  }
+
+  .hero__copy {
+    padding-top: clamp(1rem, 3vw, 3rem);
+  }
+
+  .hero__demo {
+    margin-top: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 3.4vw, 4rem);
+    max-width: 13ch;
+  }
+
+  .hero .lede {
+    font-size: var(--t-base);
+  }
+}
+
+.hero__hint {
+  margin-top: 0.85rem;
+}
+
+/* Past phone width the signals read better on one line. */
+@media (min-width: 40rem) {
+  .hero__signals {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+}
+
+.hero__tick {
+  color: var(--signal-deep);
+  flex: none;
+  transform: translateY(0.12em);
+  width: auto;
+  height: auto;
+}
+
+.btn--primary svg {
+  transition: transform 180ms var(--ease);
+}
+
+.btn--primary:hover svg {
+  transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary:hover svg {
+    transform: none;
+  }
+}

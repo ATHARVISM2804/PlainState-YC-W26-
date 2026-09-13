@@ -1,0 +1,100 @@
+.chain {
+  width: 100%;
+  border: 1px solid var(--line-hi);
+  border-radius: var(--radius-lg);
+  background: var(--bg-raised);
+  padding: 0.4rem 0 0.3rem;
+  box-shadow: var(--shadow-card);
+}
+
+.chain__row {
+  display: grid;
+  grid-template-columns: 1.4rem minmax(0, 1fr) auto;
+  gap: 0.5rem 0.75rem;
+  align-items: baseline;
+  padding: 0.55rem 1.1rem;
+}
+
+.chain__row--total {
+  border-top: 1px solid var(--line-hi);
+  margin-top: 0.15rem;
+  padding-top: 0.7rem;
+}
+
+.chain__op {
+  font-family: var(--mono);
+  font-size: var(--t-sm);
+  color: var(--brand);
+  text-align: center;
+}
+
+.chain__label {
+  font-size: var(--t-sm);
+  color: var(--text-mid);
+}
+
+.chain__row--total .chain__label {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.chain__value {
+  font-size: var(--t-sm);
+  color: var(--text);
+}
+
+.chain__row--total .chain__value {
+  font-weight: 500;
+}
+
+/* The carry line is the point of the whole panel, so it gets the only
+   colour treatment in it. */
+.chain__hint {
+  margin: 0.35rem 1.1rem 0;
+  font-family: var(--mono);
+  font-size: var(--t-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.chain__carry {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin: 0.5rem 0.75rem 0.45rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 8px;
+  background: var(--brand-wash);
+  border: 1px solid var(--brand-edge);
+}
+
+.chain__carry p {
+  margin: 0;
+  font-size: var(--t-xs);
+  line-height: 1.6;
+  color: var(--text-mid);
+}
+
+.chain__carry strong {
+  color: var(--brand);
+  font-weight: 500;
+}
+
+.chain__arrow {
+  flex: none;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-top: 0.15rem;
+  border-left: 1.5px solid var(--signal-deep);
+  border-bottom: 1.5px solid var(--signal-deep);
+  border-bottom-left-radius: 4px;
+}
+
+@media (max-width: 26rem) {
+  .chain__row {
+    padding-inline: 0.8rem;
+    grid-template-columns: 1.1rem minmax(0, 1fr) auto;
+    gap: 0.4rem 0.55rem;
+  }
+}

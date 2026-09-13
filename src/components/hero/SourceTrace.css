@@ -1,0 +1,30 @@
+/* The precedent arrow, drawn over the hero and above the statement so the
+   line can land on the figure itself. Pointer events pass straight through. */
+.trace {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.trace__dot {
+  fill: var(--signal);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+
+.trace__path,
+.trace__head {
+  fill: none;
+  stroke: var(--signal-deep);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trace__cell {
+  fill: var(--brand-wash);
+  stroke: var(--signal-deep);
+  stroke-width: 1;
+}

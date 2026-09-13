@@ -1,0 +1,330 @@
+.sheet {
+  background: var(--bg-raised);
+  border: 1px solid var(--line-hi);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.sheet__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 1.25rem;
+  background: var(--bg-sunken);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.sheet__who b {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.sheet__sep {
+  margin-inline: 0.45rem;
+  color: var(--line-hi);
+}
+
+.sheet__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0 0.5rem;
+}
+
+.sheet__kind {
+  white-space: nowrap;
+}
+
+.sheet__group {
+  padding: 0.95rem 1.25rem 0.3rem;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.sheet__rule {
+  height: 1px;
+  background: var(--line-hi);
+  margin: 0.4rem 1.25rem;
+}
+
+.line {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.25rem;
+  width: 100%;
+  padding: 0.5rem 1.25rem 0.5rem 1rem;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 150ms var(--ease);
+}
+
+.sheet__item + .sheet__item .line {
+  border-top-color: var(--line);
+}
+
+.sheet__item:has(.sheet__group) .line,
+.sheet__item:has(.sheet__rule) .line {
+  border-top-color: transparent;
+}
+
+.line:hover {
+  background: var(--surface-hi);
+}
+
+.line:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: -2px;
+}
+
+.line--on {
+  background: var(--brand-wash);
+}
+
+/* When a figure is picked, everything not on the path recedes for a moment. */
+.line {
+  transition: background-color 150ms var(--ease), opacity 260ms var(--ease);
+}
+
+.demo--tracing .line:not(.line--on),
+.demo--tracing .sheet__group,
+.demo--tracing .sheet__head {
+  opacity: 0.32;
+}
+
+.sheet__group,
+.sheet__head {
+  transition: opacity 260ms var(--ease);
+}
+
+.sheet__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1.25rem 0.9rem;
+  border-top: 1px solid var(--line);
+  background: var(--bg-sunken);
+}
+
+.sheet__check {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  min-width: 0;
+}
+
+.sheet__check b {
+  font-weight: 500;
+  color: var(--warn);
+}
+
+/* The marker slides between rows rather than blinking, so the eye can follow
+   which figure it just moved to. */
+.line__marker {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  bottom: 0;
+  width: 2px;
+  background: var(--signal);
+}
+
+.line__name {
+  color: var(--text-mid);
+  font-size: var(--t-sm);
+  transition: color 150ms var(--ease);
+}
+
+.line--on .line__name {
+  color: var(--text);
+}
+
+.line__name--sub {
+  padding-left: 1.1rem;
+}
+
+.line__figure {
+  font-size: var(--t-sm);
+  color: var(--text);
+}
+
+/* ---- x-ray: the figure and its locator share one slot; the sheet's state
+   decides which is visible. Rows switch in sequence, top to bottom, like a
+   wipe, on the compositor. ---- */
+.line__cell {
+  position: relative;
+  display: grid;
+  justify-items: end;
+  min-width: 0;
+  max-width: 60%;
+}
+
+.line__locator > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* On phones the locator is just the cell; the filename is in the receipt. */
+@media (max-width: 26rem) {
+  .line__locator > span {
+    display: none;
+  }
+}
+
+.line__cell > * {
+  grid-area: 1 / 1;
+  transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+  transition-delay: calc(var(--i, 0) * 22ms);
+}
+
+.line__locator {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--text-dim);
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+}
+
+.line__locator b {
+  font-weight: 500;
+  color: var(--brand);
+  font-size: var(--t-sm);
+}
+
+.sheet--xray .line__figure {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.sheet--xray .line__locator {
+  opacity: 1;
+  transform: none;
+}
+
+.sheet--xray .line__name {
+  color: var(--text-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line__cell > * {
+    transition: none;
+  }
+}
+
+/* ---- the switch above the sheet ---- */
+.xray {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 0.7rem;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+}
+
+.xray__opt {
+  appearance: none;
+  background: var(--surface);
+  border: 1px solid var(--line-hi);
+  color: var(--text-dim);
+  font: inherit;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  min-height: 2.25rem;
+  cursor: pointer;
+  transition: background-color 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
+}
+
+.xray__opt:first-child {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.xray__opt + .xray__opt {
+  margin-left: -1px;
+}
+
+.xray__opt:nth-child(3) {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.xray__opt.is-on {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--on-brand);
+}
+
+.xray__opt:focus-visible {
+  outline: 2px solid var(--signal-deep);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.xray__hint {
+  margin-left: 0.9rem;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 40rem) {
+  .xray__hint {
+    display: none;
+  }
+}
+
+.line--total .line__name {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.line--total .line__figure {
+  font-weight: 500;
+}
+
+/* Tighten the row box on small phones so a long label and its figure still
+   sit on one line rather than colliding. */
+@media (max-width: 26rem) {
+  .line {
+    padding: 0.5rem 0.85rem 0.5rem 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .line__name--sub {
+    padding-left: 0.7rem;
+  }
+
+  .sheet__head,
+  .sheet__group,
+  .sheet__foot {
+    padding-inline: 0.85rem;
+  }
+
+  .sheet__rule {
+    margin-inline: 0.85rem;
+  }
+}

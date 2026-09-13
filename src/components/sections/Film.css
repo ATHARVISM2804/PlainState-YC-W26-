@@ -1,0 +1,59 @@
+.film__intro {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* The frame: a sheet of paper with a hairline, holding a 16:9 picture. */
+.film {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+  border: 1px solid var(--line-hi);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.film__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--brand-deep);
+}
+
+.film__empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  background: var(--bg-sunken);
+  background-image: var(--grain);
+  background-size: 240px 240px;
+  background-blend-mode: multiply;
+}
+
+.film__empty img {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 22%;
+}
+
+.film__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.film__label svg {
+  color: var(--signal-deep);
+}

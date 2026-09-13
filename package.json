@@ -1,0 +1,36 @@
+{
+  "name": "plainstate-landing",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit",
+    "build:embed": "tsc -b --noEmit && vite build --mode embed",
+    "check:layout": "node scripts/check-layout.mjs",
+    "check:quality": "node scripts/check-quality.mjs",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "verify": "npm run build && npm run check:contrast && npm run check:layout && npm run check:quality"
+  },
+  "dependencies": {
+    "@number-flow/react": "^0.6.2",
+    "@radix-ui/react-accordion": "^1.2.20",
+    "lucide-react": "^1.45.0",
+    "motion": "^12.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vite-plugin-singlefile": "^2.3.3"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

@@ -1,0 +1,325 @@
+/* ---------- how it works ---------- */
+
+.how__intro {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+/* ---------- refusals: receipt strips, the only place stop/warn appear ---------- */
+
+.refusals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* Each refusal is printed on its own strip, torn off at the bottom. The clip
+   path that tears it is set inline, since CSS cannot loop. */
+.refusal {
+  position: relative;
+  background: var(--surface);
+  border-top: 1px dashed var(--line-max);
+  padding: 1rem 1.1rem 1.35rem;
+}
+
+.refusal__tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: var(--t-2xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.refusal--stop .refusal__tag {
+  color: var(--stop);
+}
+
+.refusal--warn .refusal__tag {
+  color: var(--warn);
+}
+
+.refusal code {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  line-height: 1.6;
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  margin-bottom: 0.65rem;
+  overflow-x: auto;
+}
+
+.refusal--stop code {
+  color: var(--stop);
+  background: var(--stop-wash);
+}
+
+.refusal--warn code {
+  color: var(--warn);
+  background: var(--warn-wash);
+}
+
+.refusal p {
+  color: var(--text-mid);
+  font-size: var(--t-sm);
+  line-height: 1.6;
+}
+
+/* ---------- boundaries ---------- */
+
+.pull {
+  font-family: var(--serif);
+  font-size: var(--t-lg);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+  max-width: 16ch;
+  color: var(--text);
+}
+
+.nevers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nevers li {
+  display: grid;
+  gap: 0.3rem 2rem;
+  align-items: baseline;
+  padding-block: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 40rem) {
+  .nevers li {
+    grid-template-columns: 12rem minmax(0, 1fr);
+  }
+}
+
+.nevers li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.nevers b {
+  font-weight: 500;
+}
+
+.nevers span {
+  color: var(--text-mid);
+  font-size: var(--t-sm);
+  line-height: 1.6;
+}
+
+/* ---------- pricing ---------- */
+
+.pricing__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.tiers {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 52rem) {
+  .tiers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.tier {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.6rem 1.5rem 1.7rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--edge-lit);
+}
+
+.tier--featured {
+  border-color: var(--brand-edge);
+  background: var(--bg-raised);
+}
+
+.tier__tag {
+  position: absolute;
+  top: -0.85rem;
+  right: 1.1rem;
+}
+
+.tier__doors {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* The price is set like a total line on a statement: tabular figures over a
+   double rule. */
+.tier__price {
+  font-family: var(--mono);
+  font-size: clamp(2rem, 3.6vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  padding-bottom: 0.6rem;
+  border-bottom: 3px double var(--line-max);
+}
+
+.tier__currency {
+  font-size: 0.52em;
+  vertical-align: 0.52em;
+  margin-right: 0.06em;
+  color: var(--text-dim);
+}
+
+.tier__period {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  color: var(--text-dim);
+  margin-left: 0.2rem;
+}
+
+.tier__who {
+  color: var(--text-mid);
+  font-size: var(--t-sm);
+}
+
+.pricing__note {
+  margin-top: 1.25rem;
+}
+
+/* ---------- close ---------- */
+
+.close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.close__body {
+  max-width: 52ch;
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  border-top: 1px solid var(--rule);
+  padding-block: 3rem 2.5rem;
+  font-size: var(--t-sm);
+  color: var(--text-dim);
+}
+
+.footer__grid {
+  display: grid;
+  gap: 2.25rem 2rem;
+}
+
+@media (min-width: 40rem) {
+  .footer__grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 58rem) {
+  .footer__grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.6fr);
+  }
+}
+
+.footer__brand img {
+  display: block;
+  height: 1.6rem;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.footer__blurb {
+  max-width: 34ch;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+.footer__reads {
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.footer__title {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.9rem;
+}
+
+.footer__col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.footer__col a {
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 160ms var(--ease);
+}
+
+.footer__col a:hover {
+  color: var(--brand);
+}
+
+.footer__legal {
+  margin-top: 2.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: var(--t-xs);
+  color: var(--text-dim);
+  max-width: none;
+}
+
+/* Pricing cards read better with a little less padding on phones. */
+@media (max-width: 26rem) {
+  .tier {
+    padding: 1.25rem 1.1rem 1.35rem;
+  }
+
+  .steps li {
+    grid-template-columns: 2.1rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Icons in the boundary rules: small, aligned to the text baseline, and the
+   only place colour appears in this list. */
+.nevers b {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nevers b svg {
+  color: var(--brand);
+  flex: none;
+}

@@ -1,0 +1,6 @@
+# Normalise line endings so a Windows and a Linux checkout produce identical
+# diffs. Without this, every file looks modified on the other platform.
+* text=auto eol=lf
+
+*.png binary
+*.svg text

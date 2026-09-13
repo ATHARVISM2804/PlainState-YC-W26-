@@ -1,0 +1,18 @@
+.demo-frame {
+  container-type: inline-size;
+  min-width: 0;
+}
+
+.demo {
+  position: relative;
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: start;
+}
+
+/* Two columns whenever the demo itself is wide enough, wherever it sits. */
+@container (min-width: 42rem) {
+  .demo {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  }
+}

@@ -1,0 +1,41 @@
+.cite {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--line-hi);
+  display: grid;
+  gap: 0.4rem 1.5rem;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  color: var(--text-dim);
+}
+
+@media (min-width: 40rem) {
+  .cite {
+    grid-template-columns: 6rem minmax(0, 1fr);
+  }
+}
+
+.cite__label {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cite__list {
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  display: grid;
+  gap: 0.25rem;
+  max-width: 70ch;
+}
+
+.cite__list a {
+  color: var(--text-dim);
+  text-decoration: underline;
+  text-decoration-color: var(--line-max);
+  text-underline-offset: 0.2em;
+  transition: color 160ms var(--ease);
+}
+
+.cite__list a:hover {
+  color: var(--brand);
+}

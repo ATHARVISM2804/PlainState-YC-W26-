@@ -1,0 +1,122 @@
+.receipt {
+  position: sticky;
+  top: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line-hi);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 1.2rem 1.3rem 1.45rem;
+}
+
+.receipt__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.receipt__title {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.receipt__for {
+  font-size: var(--t-sm);
+  color: var(--text-mid);
+  margin-bottom: 0.35rem;
+}
+
+.receipt__value {
+  font-family: var(--mono);
+  font-size: clamp(1.9rem, 3.6vw, 2.5rem);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+
+.receipt__fields {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 5.75rem minmax(0, 1fr);
+  gap: 0.5rem 1rem;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  line-height: 1.55;
+}
+
+.receipt__fields dt {
+  color: var(--text-dim);
+}
+
+.receipt__fields dd {
+  margin: 0;
+  color: var(--text-mid);
+  word-break: break-word;
+}
+
+.receipt__fields dd.is-brand {
+  color: var(--brand);
+  font-weight: 500;
+}
+
+.receipt__fields dd.is-strong {
+  color: var(--text);
+}
+
+/* On the narrowest phones a 5.75rem term column leaves too little for values
+   like a vendor line. Below 26rem the pairs stack instead of wrapping badly. */
+@media (max-width: 26rem) {
+  .receipt {
+    padding: 1rem 1.05rem 1.25rem;
+  }
+
+  .receipt__fields {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.15rem;
+  }
+
+  .receipt__fields dt {
+    margin-top: 0.5rem;
+  }
+
+  .receipt__fields dt:first-of-type {
+    margin-top: 0;
+  }
+}
+
+/* ---- icons, tooltip and the counting value ---- */
+
+.receipt__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.receipt__title svg {
+  color: var(--brand);
+  flex: none;
+}
+
+.receipt__fields dt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.receipt__fields dt svg {
+  flex: none;
+  opacity: 0.75;
+}
+
+/* NumberFlow renders its own inline element; it must inherit the tabular
+   figure treatment rather than reset to the body font. */
+.receipt__value number-flow-react {
+  font-variant-numeric: tabular-nums;
+}
+

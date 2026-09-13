@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dist-embed/
+preview.html
+*.tsbuildinfo
+.DS_Store
+.vercel
+.env
+.env.local
+shot-*.png
+.env.local
+
+# Internal strategy documents: never in the public repo
+PLAINSTATE.md
+docs/

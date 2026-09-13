@@ -1,0 +1,127 @@
+/* ---------------------------------------------------------------------------
+   Plainstate design tokens.
+
+   A grainy off-white ground taken from the logo's own paper colour, near-black
+   text, and two greens that split one job between them: the forest green is
+   the ink (buttons, links, the accent phrase), the mint is the signal (the
+   cited cell, the active row, the drawn line, the dot in the mark). Mint never
+   carries text — it fails contrast on white — so anywhere a green has to be
+   read, it is the forest.
+
+   Committed to a single light theme, painted explicitly so the page holds on
+   any host background.
+
+   Colour carries meaning in exactly three places:
+     --brand / --signal   the live thing: citations, active row, primary action
+     --warn               a figure a human still has to look at
+     --stop               something the system refused outright
+   A fourth would mean one of these had stopped meaning anything.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* --- ground: the logo's paper, one step warm of pure white --- */
+  --bg: #fdfcf8;
+  --bg-raised: #ffffff;
+  --bg-sunken: #f4f3ed;
+  --surface: #ffffff;
+  --surface-hi: #f3f5f1;
+  --surface-max: #eaece7;
+
+  --line: #e7e5dd;
+  --line-hi: #d8d6cd;
+  --line-max: #c3c1b7;
+  /* Ruled lines on the paper: the ink at low alpha, so rails and section
+     rules belong to the page rather than sitting on it. */
+  --rule: rgb(21 56 44 / 16%);
+  --rule-soft: rgb(21 56 44 / 9%);
+
+  --text: #0b0f0d;
+  --text-mid: #474f4a;
+  --text-dim: #5f675f;
+
+  /* --- the ink: forest green from the wordmark --- */
+  --brand: #15382c;
+  --brand-hi: #1d4a3a;
+  --brand-deep: #0e2a21;
+  --on-brand: #fdfcf8;
+
+  /* --- the signal: the mint dot from the mark --- */
+  --signal: #34da92;
+  --signal-deep: #1faa6b;
+  --brand-wash: rgb(52 218 146 / 14%);
+  --brand-edge: rgb(52 218 146 / 55%);
+  --brand-glow: rgb(21 56 44 / 28%);
+
+  --warn: #8a5a00;
+  --warn-wash: rgb(227 179 65 / 16%);
+  --stop: #b8381a;
+  --stop-wash: rgb(240 122 90 / 14%);
+
+  /* One directional wash behind the hero. The signal colour at low alpha:
+     light falling across paper, not a gradient for its own sake. */
+  --aura:
+    radial-gradient(58% 44% at 18% 0%, rgb(52 218 146 / 12%) 0%, transparent 68%),
+    radial-gradient(48% 38% at 88% 6%, rgb(52 218 146 / 7%) 0%, transparent 66%);
+
+  /* Paper texture, two layers multiplied over the ground by body::before:
+     a fine tooth (--grain) and a slow fibre mottle (--grain-soft). Both are
+     one tiled SVG each, no image request. */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='1.1' intercept='0.2'/%3E%3CfeFuncG type='linear' slope='1.1' intercept='0.2'/%3E%3CfeFuncB type='linear' slope='1.1' intercept='0.2'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --grain-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='0.7' intercept='0.5'/%3E%3CfeFuncG type='linear' slope='0.7' intercept='0.5'/%3E%3CfeFuncB type='linear' slope='0.7' intercept='0.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+
+  /* A hairline highlight along the top of a raised surface keeps a white card
+     from merging into the paper behind it. */
+  --edge-lit: inset 0 1px 0 rgb(255 255 255 / 90%);
+  /* Nothing floats. Depth is a hairline and a tint shift, like paper on paper. */
+  --shadow-card: var(--edge-lit), 0 1px 0 rgb(21 56 44 / 5%);
+  --shadow-soft: var(--edge-lit);
+
+  /* --- type ---
+     A quiet editorial serif for display, set at one weight: the page should
+     read like a printed statement, not a software launch. Instrument Sans
+     carries body and UI. The mono is not decorative: cell references are the
+     product, so they get a face built for them. */
+  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    serif;
+  --sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --t-2xs: 0.6875rem;
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-base: clamp(1rem, 0.98rem + 0.12vw, 1.0625rem);
+  --t-md: clamp(1.125rem, 1.07rem + 0.3vw, 1.3125rem);
+  --t-lg: clamp(1.4rem, 1.26rem + 0.7vw, 1.85rem);
+  --t-xl: clamp(1.85rem, 1.5rem + 1.6vw, 3rem);
+  --t-2xl: clamp(2.75rem, 1.7rem + 4.9vw, 5.75rem);
+
+  /* Display type is set tight and heavy, body stays normal. Held as tokens so
+     the two cannot drift apart across components. */
+  --track-display: -0.022em;
+  --track-head: -0.016em;
+  --weight-display: 400;
+
+  /* --- motion ---
+     One ease-out for everything that answers a person; springs only for the
+     two sliding markers. Nothing on the page uses ease-in. */
+  --ease: var(--ease);
+  --dur-1: 160ms;
+  --dur-2: 240ms;
+
+  --gutter: clamp(1.25rem, 4.5vw, 5.5rem);
+  --rhythm: clamp(4.5rem, 9vw, 8.5rem);
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 18px;
+
+  color-scheme: light;
+}
+
+/* Small screens: no label under 12px, and controls grow to a thumb. */
+@media (max-width: 40rem) {
+  :root {
+    --t-2xs: 0.75rem;
+  }
+}

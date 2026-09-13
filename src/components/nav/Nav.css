@@ -1,0 +1,150 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms var(--ease), background-color 200ms var(--ease);
+}
+
+.nav--lifted {
+  border-bottom-color: var(--line);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 4rem;
+}
+
+.nav__mark {
+  display: inline-flex;
+  align-items: center;
+  margin-right: auto;
+  border-radius: 6px;
+}
+
+.nav__mark img {
+  display: block;
+  height: 1.75rem;
+  width: auto;
+}
+
+.nav__links,
+.nav__cta {
+  display: none;
+}
+
+.nav__links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: var(--t-sm);
+  transition: color 160ms var(--ease);
+}
+
+.nav__links a:hover {
+  color: var(--text);
+}
+
+/* ---- the trigger, phones and small tablets ---- */
+
+.nav__toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 0.6rem;
+  background: none;
+  border: 1px solid var(--line-hi);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nav__bar {
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background: var(--text);
+  transition: transform 200ms var(--ease), opacity 160ms var(--ease);
+}
+
+.nav__bar.is-hidden {
+  opacity: 0;
+}
+
+.nav__bar.is-x1 {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.nav__bar.is-x2 {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.nav__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.5rem var(--gutter) 1.25rem;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.nav__panelLinks {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__panelLinks a {
+  padding: 0.85rem 0;
+  color: var(--text-mid);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav__panelLinks a:active {
+  color: var(--text);
+}
+
+.nav__panel .btn {
+  margin-top: 0.9rem;
+}
+
+.nav__panel .btn + .btn {
+  margin-top: 0.5rem;
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 60rem) {
+  .nav__links {
+    display: flex;
+    gap: 1.65rem;
+    margin-right: 1.25rem;
+  }
+
+  .nav__cta {
+    display: inline-flex;
+    min-height: 2.4rem;
+    padding: 0.45rem 1.05rem;
+    font-size: var(--t-sm);
+  }
+
+  .nav__toggle {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__bar {
+    transition: none;
+  }
+}
