@@ -178,9 +178,10 @@ and by touch, each a still frame under reduced motion.
   three ledger cells into Total Income, rolls it forward, distributes it and
   carries it into September. Five hops, five fifths of the scroll.
   `TraceScroll.tsx`.
-- **The rollforward as progress.** On wide screens a small strip in the corner
-  fills the August arithmetic in as the reader descends and reaches
-  "off by 0.00" at the footer. `ScrollLedger.tsx`.
+- **The rollforward as progress.** A small corner strip that fills the August
+  arithmetic in as the reader descends. Built in `ScrollLedger.tsx` but not
+  rendered, because it sat over content while reading; one line in `App.tsx`
+  brings it back.
 - **Before and after, torn.** In "What you do today", the export as it arrives
   lies over the statement it becomes; drag the torn edge, or use the arrow
   keys on the handle. `Torn.tsx`.

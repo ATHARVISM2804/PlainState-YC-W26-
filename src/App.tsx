@@ -7,7 +7,6 @@ import { Problem } from "./components/sections/Problem";
 import { What } from "./components/sections/What";
 import { Film } from "./components/sections/Film";
 import { Workflow } from "./components/sections/Workflow";
-import { ScrollLedger } from "./components/ScrollLedger";
 import { FILMS, SITE } from "./data/content";
 import { attachLinkTracking } from "./lib/track";
 
@@ -33,7 +32,9 @@ export default function App() {
         Skip to content
       </a>
       <Nav />
-      <ScrollLedger />
+      {/* The rollforward progress strip (components/ScrollLedger) is built but
+          not shown: it sat over content while reading. Render it here to bring
+          it back. */}
       <main id="main" className="wrap">
         <Hero />
         <Ticker />
