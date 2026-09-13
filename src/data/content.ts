@@ -127,7 +127,8 @@ export const FILMS: Record<"overview" | "review", Film> = {
     eyebrow: "In one take",
     heading: "Watch a month close.",
     body: "From the exports landing to the statement a reviewer approves.",
-    src: "",
+    src: "/film-overview.mp4",
+    poster: "/film-overview-poster.jpg",
   },
   review: {
     eyebrow: "The reviewer's screen",

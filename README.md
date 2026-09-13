@@ -373,8 +373,12 @@ anything Vite-specific.
 - Replace `SITE.contact` in `src/data/content.ts` with the real address
 - Replace `SITE.calendar` with the Cal.com booking URL (every "Book a call"
   reads it) and the two `mailto:` links in `FOOTER.columns`
-- Drop the two films into `public/` and set `FILMS.overview.src` and
-  `FILMS.review.src`
+- The overview film is live: `public/film-overview.mp4` (H.264, fast-start,
+  13.8 MB, encoded from the 58 MB master with
+  `ffmpeg -i master.mp4 -vf "scale='min(1920,iw)':-2" -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart -an public/film-overview.mp4`)
+  with a poster from the one-minute mark. Masters stay out of the repo
+  (`/*.mp4` is ignored). The second slot, `FILMS.review.src`, still waits for
+  its cut.
 - Update the three places that say `plainstate.com` (canonical + `og:url` in
   `index.html`, the `Sitemap:` line in `public/robots.txt`)
 - Settle the name — the strategy docs say OwnerBrief, this says Plainstate

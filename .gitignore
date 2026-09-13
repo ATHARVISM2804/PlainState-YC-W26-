@@ -13,3 +13,7 @@ shot-*.png
 # Internal strategy documents: never in the public repo
 PLAINSTATE.md
 docs/
+
+# Source video masters stay out of the repo; the web encode lives in public/
+/*.mp4
+/*.mov
