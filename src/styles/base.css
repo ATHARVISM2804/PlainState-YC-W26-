@@ -50,9 +50,9 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: var(--grain), var(--grain-fibre), var(--grain-soft);
-  background-size: 240px 240px, 1200px 400px, 900px 900px;
-  opacity: 0.57;
+  background-image: var(--grain), var(--grain-soft);
+  background-size: 240px 240px, 900px 900px;
+  opacity: 0.55;
   mix-blend-mode: multiply;
 }
 
