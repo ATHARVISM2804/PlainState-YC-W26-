@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, m, useReducedMotion } from "motion/react";
+import { SEND_EXPORT, SITE } from "../../data/content";
 import {
   ApiError,
   apiConfigured,
@@ -171,7 +172,7 @@ VITE_API_URL=http://localhost:8000 npm run dev`}
         </code>
       </pre>
       <p className="note">
-        Or send one export to <a href="mailto:hello@buildplainstate.in">hello@buildplainstate.in</a>{" "}
+        Or send one export to <a href={SEND_EXPORT}>{SITE.contact}</a>{" "}
         and we will run it and write back.
       </p>
     </div>

@@ -20,6 +20,31 @@ export const SITE = {
   bookCall: "Book a call",
 };
 
+/**
+ * The "send an export" link, pre-filled.
+ *
+ * An empty compose window is a blank page: the manager has to work out what to
+ * attach and what we need to know. This says both, and leaves three lines to
+ * fill in, which are the same three questions the booking form asks.
+ */
+const EXPORT_BODY = [
+  "Attaching one month's exports from our property management software:",
+  "",
+  "  · Owner Statement",
+  "  · General Ledger",
+  "",
+  "Redacted is fine. Tell us what you could and could not read.",
+  "",
+  "Company:",
+  "Doors we manage:",
+  "Software (Buildium / AppFolio / Rent Manager / Propertyware / Rentvine / other):",
+  "",
+].join("\n");
+
+export const SEND_EXPORT = `mailto:${SITE.contact}?subject=${encodeURIComponent(
+  "One month's export",
+)}&body=${encodeURIComponent(EXPORT_BODY)}`;
+
 export const HERO = {
   kicker: "For residential property managers · 200–800 doors",
   headline: "Month-end owner statements in",
@@ -160,7 +185,7 @@ export const FOOTER = {
       title: "Talk to us",
       links: [
         { label: "Book a call", href: "https://cal.com/atharvgolait/plainstate" },
-        { label: "Send an export", href: "mailto:hello@buildplainstate.in?subject=One%20export" },
+        { label: "Send an export", href: SEND_EXPORT },
       ],
     },
   ],

@@ -6,6 +6,7 @@ import {
   GLOSSARY,
   PRICING_NOTE,
   PROVE,
+  SEND_EXPORT,
   SITE,
   PRINCIPLE,
   REFUSALS,
@@ -179,7 +180,7 @@ export function Close() {
           <h2>{CLOSE.heading}</h2>
           <p className="prose close__body">{CLOSE.body}</p>
           <div className="btn-row">
-            <a className="btn btn--primary" href={`mailto:${SITE.contact}?subject=One%20export`}>
+            <a className="btn btn--primary" href={SEND_EXPORT}>
               {CLOSE.primary}
             </a>
             <a className="btn btn--quiet" href={SITE.calendar} target="_blank" rel="noopener noreferrer">
