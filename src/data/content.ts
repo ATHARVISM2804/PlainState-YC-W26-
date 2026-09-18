@@ -121,19 +121,14 @@ export interface Film {
   poster?: string;
 }
 
-export const FILMS: Record<"overview" | "review", Film> = {
+/** One film, the overview. Set `src` to a path under public/ to show it. */
+export const FILMS: Record<"overview", Film> = {
   overview: {
     eyebrow: "In one take",
     heading: "Watch a month close.",
     body: "From the exports landing to the statement a reviewer approves.",
     src: "/film-overview.mp4",
     poster: "/film-overview-poster.jpg",
-  },
-  review: {
-    eyebrow: "The reviewer's screen",
-    heading: "What a reviewer sees before anything is sent.",
-    body: "Figures, flags and sources side by side. Click a number, see the cell.",
-    src: "",
   },
 };
 

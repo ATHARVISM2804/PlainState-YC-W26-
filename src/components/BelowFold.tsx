@@ -2,10 +2,8 @@ import { Faq } from "./sections/Faq";
 import { Rollforward } from "./sections/Rollforward";
 import { Sources } from "./sections/Sources";
 import { TryIt } from "./sections/TryIt";
-import { Film } from "./sections/Film";
 import { Data, Engine, Method, RunsOut, Status } from "./sections/Story";
 import { TraceScroll } from "./sections/TraceScroll";
-import { FILMS } from "../data/content";
 import {
   Boundaries,
   Checks,
@@ -32,7 +30,6 @@ export default function BelowFold() {
       <TraceScroll />
       <Principle />
       <How />
-      <Film film={FILMS.review} />
       <Sources />
       <TryIt />
       <Checks />

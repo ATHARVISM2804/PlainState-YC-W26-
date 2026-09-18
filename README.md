@@ -131,8 +131,7 @@ because a visitor decides in about five seconds:
 3. **What Plainstate is** — the product in one paragraph and three columns
 4. **How a month moves** — the whole loop in five stations: your PMS, the
    export, Plainstate, your reviewer, your owner (`Workflow.tsx`)
-5. **Film** — a framed video slot (`FILMS.overview` in `content.ts`); a second
-   slot (`FILMS.review`) follows the four steps. Empty `src` shows the frame.
+5. **Film** — a framed video slot (`FILMS.overview` in `content.ts`)
 6. **The problem in the manager's words** — what owners write in, the
    founder's estimates labelled as estimates, then "Why now" as three shifts
 7. **What you do today, and where it runs out** — the PMS statement, a
@@ -373,12 +372,11 @@ anything Vite-specific.
 - Replace `SITE.contact` in `src/data/content.ts` with the real address
 - Replace `SITE.calendar` with the Cal.com booking URL (every "Book a call"
   reads it) and the two `mailto:` links in `FOOTER.columns`
-- The overview film is live: `public/film-overview.mp4` (H.264, fast-start,
+- One film section only. The overview film is live: `public/film-overview.mp4` (H.264, fast-start,
   13.8 MB, encoded from the 58 MB master with
   `ffmpeg -i master.mp4 -vf "scale='min(1920,iw)':-2" -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart -an public/film-overview.mp4`)
   with a poster from the one-minute mark. Masters stay out of the repo
-  (`/*.mp4` is ignored). The second slot, `FILMS.review.src`, still waits for
-  its cut.
+  (`/*.mp4` is ignored). The second film section was removed on 18 Sep 2026.
 - Update the three places that say `buildplainstate.in` (canonical + `og:url` in
   `index.html`, the `Sitemap:` line in `public/robots.txt`)
 - Settle the name — the strategy docs say OwnerBrief, this says Plainstate
