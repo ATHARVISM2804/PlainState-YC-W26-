@@ -59,7 +59,9 @@
 }
 
 /* The player's native controls take focus; give the frame a visible ring. */
-.film__video:focus-visible {
+.film__video:focus,
+.film__video:focus-visible,
+.film__video:focus-within {
   outline: 2px solid var(--signal-deep);
   outline-offset: -2px;
 }
