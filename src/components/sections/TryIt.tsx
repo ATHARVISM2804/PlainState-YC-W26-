@@ -171,7 +171,7 @@ VITE_API_URL=http://localhost:8000 npm run dev`}
         </code>
       </pre>
       <p className="note">
-        Or send one export to <a href="mailto:hello@plainstate.com">hello@plainstate.com</a>{" "}
+        Or send one export to <a href="mailto:hello@buildplainstate.in">hello@buildplainstate.in</a>{" "}
         and we will run it and write back.
       </p>
     </div>

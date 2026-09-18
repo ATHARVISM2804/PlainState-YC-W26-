@@ -14,10 +14,10 @@
 export const SITE = {
   name: "Plainstate",
   tagline: "Month-end owner reporting for third-party property managers.",
-  contact: "hello@plainstate.com",
+  contact: "hello@buildplainstate.in",
   /** Swap for the Cal.com booking URL when it exists. Every "Book a call"
    *  on the page reads this one value. */
-  calendar: "mailto:hello@plainstate.com?subject=Book%20a%20call",
+  calendar: "mailto:hello@buildplainstate.in?subject=Book%20a%20call",
   bookCall: "Book a call",
 };
 
@@ -160,9 +160,9 @@ export const FOOTER = {
     {
       title: "Talk to us",
       links: [
-        { label: "Book a call", href: "mailto:hello@plainstate.com?subject=Book%20a%20call" },
-        { label: "Send an export", href: "mailto:hello@plainstate.com?subject=One%20export" },
-        { label: "hello@plainstate.com", href: "mailto:hello@plainstate.com" },
+        { label: "Book a call", href: "mailto:hello@buildplainstate.in?subject=Book%20a%20call" },
+        { label: "Send an export", href: "mailto:hello@buildplainstate.in?subject=One%20export" },
+        { label: "hello@buildplainstate.in", href: "mailto:hello@buildplainstate.in" },
       ],
     },
   ],

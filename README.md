@@ -1,6 +1,6 @@
 # Plainstate — landing page
 
-Marketing site for [Plainstate](https://plainstate.com): month-end owner
+Marketing site for [Plainstate](https://buildplainstate.in): month-end owner
 statements for residential property managers, with the source cell behind every
 figure.
 
@@ -84,7 +84,7 @@ directory `dist`.
 ### Connecting the domain
 
 1. Add the domain in your host's dashboard and point DNS at it.
-2. Update three places that currently say `plainstate.com`:
+2. Update three places that currently say `buildplainstate.in`:
    - `index.html` — `<link rel="canonical">` and `og:url`
    - `public/robots.txt` — the `Sitemap:` line
    - `src/data/content.ts` — `SITE.contact`
@@ -379,7 +379,7 @@ anything Vite-specific.
   with a poster from the one-minute mark. Masters stay out of the repo
   (`/*.mp4` is ignored). The second slot, `FILMS.review.src`, still waits for
   its cut.
-- Update the three places that say `plainstate.com` (canonical + `og:url` in
+- Update the three places that say `buildplainstate.in` (canonical + `og:url` in
   `index.html`, the `Sitemap:` line in `public/robots.txt`)
 - Settle the name — the strategy docs say OwnerBrief, this says Plainstate
 - Add "Backed by Y Combinator" to the nav if and when that is true

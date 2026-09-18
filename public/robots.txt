@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://plainstate.com/sitemap.xml
+Sitemap: https://buildplainstate.in/sitemap.xml
