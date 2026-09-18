@@ -231,8 +231,10 @@ export function Footer() {
           ))}
         </dl>
       </details>
-      <p className="footer__colophon">{FOOTER.colophon}</p>
-      <p className="footer__legal">{FOOTER.legal}</p>
+      <div className="footer__base">
+        <p className="footer__legal">{FOOTER.legal}</p>
+        <p className="footer__colophon">{FOOTER.colophon}</p>
+      </div>
     </footer>
   );
 }

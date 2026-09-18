@@ -243,7 +243,7 @@
 
 .footer {
   border-top: 1px solid var(--rule);
-  padding-block: 3rem 2.5rem;
+  padding-block: clamp(2.5rem, 5vw, 4rem) 2.5rem;
   font-size: var(--t-sm);
   color: var(--text-dim);
 }
@@ -253,15 +253,46 @@
   gap: 2.25rem 2rem;
 }
 
+/* On phones the three link lists sit two-up so the footer is not a long
+   column of headings, and the brand block keeps the full width above them. */
+@media (max-width: 40rem) {
+  .footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 1.5rem;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer__col:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer__col ul {
+    gap: 0.35rem;
+  }
+}
+
 @media (min-width: 40rem) {
   .footer__grid {
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
   }
 }
 
 @media (min-width: 58rem) {
   .footer__grid {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.6fr);
+    grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+    gap: 2rem clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  .footer__brand {
+    grid-column: auto;
   }
 }
 
@@ -358,18 +389,31 @@
   margin-top: 0.75rem;
 }
 
-.footer__colophon {
+/* The base line: colophon and copyright share one rule, ends aligned. */
+.footer__base {
   margin-top: 2rem;
-  font-family: var(--serif);
-  font-size: var(--t-base);
-  color: var(--text-mid);
-  max-width: 62ch;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 58rem) {
+  .footer__base {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: baseline;
+  }
+}
+
+.footer__colophon {
+  font-size: var(--t-xs);
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 68ch;
 }
 
 .footer__legal {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
   font-size: var(--t-xs);
   color: var(--text-dim);
   max-width: none;

@@ -139,16 +139,21 @@ export const FOOTER = {
     "Month-end owner statements for third-party residential property managers, with the source cell behind every figure.",
   columns: [
     {
-      title: "Product",
+      title: "The product",
       links: [
         { label: "How statements work", href: "/#rollforward" },
         { label: "How it works", href: "/#how" },
         { label: "Under the hood", href: "/#engine" },
+        { label: "The checks", href: "/#checks" },
+      ],
+    },
+    {
+      title: "More",
+      links: [
         { label: "The method", href: "/method" },
         { label: "Try it", href: "/#try" },
         { label: "Pricing", href: "/#pricing" },
         { label: "FAQ", href: "/#faq" },
-        { label: "Glossary", href: "/#glossary" },
       ],
     },
     {
@@ -156,7 +161,6 @@ export const FOOTER = {
       links: [
         { label: "Book a call", href: "https://cal.com/atharvgolait/plainstate" },
         { label: "Send an export", href: "mailto:hello@buildplainstate.in?subject=One%20export" },
-        { label: "hello@buildplainstate.in", href: "mailto:hello@buildplainstate.in" },
       ],
     },
   ],
