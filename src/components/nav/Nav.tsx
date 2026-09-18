@@ -72,7 +72,7 @@ export function Nav() {
           <a className="btn btn--quiet nav__cta" href="/#start">
             Send an export
           </a>
-          <a className="btn btn--primary nav__cta" href={SITE.calendar}>
+          <a className="btn btn--primary nav__cta" href={SITE.calendar} target="_blank" rel="noopener noreferrer">
             {SITE.bookCall}
           </a>
         </div>
@@ -109,7 +109,7 @@ export function Nav() {
                 </a>
               ))}
             </nav>
-            <a className="btn btn--primary" href={SITE.calendar} onClick={() => setOpen(false)}>
+            <a className="btn btn--primary" href={SITE.calendar} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
               {SITE.bookCall}
             </a>
             <a className="btn btn--quiet" href="/#start" onClick={() => setOpen(false)}>

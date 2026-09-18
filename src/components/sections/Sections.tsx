@@ -182,7 +182,7 @@ export function Close() {
             <a className="btn btn--primary" href={`mailto:${SITE.contact}?subject=One%20export`}>
               {CLOSE.primary}
             </a>
-            <a className="btn btn--quiet" href={SITE.calendar}>
+            <a className="btn btn--quiet" href={SITE.calendar} target="_blank" rel="noopener noreferrer">
               {CLOSE.secondary}
             </a>
           </div>
@@ -208,7 +208,12 @@ export function Footer() {
             <ul>
               {col.links.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href}>{l.label}</a>
+                  <a
+                    href={l.href}
+                    {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
+                    {l.label}
+                  </a>
                 </li>
               ))}
             </ul>
