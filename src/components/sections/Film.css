@@ -57,3 +57,9 @@
 .film__label svg {
   color: var(--signal-deep);
 }
+
+/* The player's native controls take focus; give the frame a visible ring. */
+.film__video:focus-visible {
+  outline: 2px solid var(--signal-deep);
+  outline-offset: -2px;
+}
