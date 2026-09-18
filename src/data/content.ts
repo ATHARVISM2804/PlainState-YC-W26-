@@ -537,9 +537,9 @@ export interface Tier {
 }
 
 export const TIERS: Tier[] = [
-  { doors: "200–350", price: "349", typical: "One reviewer, one close day" },
-  { doors: "350–600", price: "599", typical: "Several managers, shared queue", featured: true },
-  { doors: "600–900", price: "899", typical: "Dedicated accounting staff" },
+  { doors: "200–350", price: "249", typical: "One reviewer, one close day" },
+  { doors: "350–600", price: "449", typical: "Several managers, shared queue", featured: true },
+  { doors: "600–900", price: "699", typical: "Dedicated accounting staff" },
 ];
 
 export const PRICING_NOTE =
