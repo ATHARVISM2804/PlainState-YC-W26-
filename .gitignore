@@ -17,3 +17,7 @@ docs/
 # Source video masters stay out of the repo; the web encode lives in public/
 /*.mp4
 /*.mov
+
+# Founder headshots are deck assets, not site assets
+/public/atharv.png
+/public/mridul.png
